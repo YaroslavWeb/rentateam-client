@@ -17,3 +17,4 @@
 ## How to use?
 
 1. `npm run dev`
+2. Server - https://github.com/YaroslavWeb/rentateam-server.git
