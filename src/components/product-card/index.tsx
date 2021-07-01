@@ -60,7 +60,7 @@ export function ProductCard({
   const handleScroll = useCallback(() => {
     cardRef.current &&
       !isVisible &&
-      setVisible(cardRef.current?.offsetTop - window.scrollY < 500);
+      setVisible(cardRef.current.offsetTop - window.scrollY < 500);
   }, [isVisible]);
 
   useEffect(() => {
