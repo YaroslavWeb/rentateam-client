@@ -17,4 +17,6 @@
 ## How to use?
 
 1. `npm start`
-2. Server - https://github.com/YaroslavWeb/rentateam-server.git
+
+## Server code
+https://github.com/YaroslavWeb/rentateam-server.git
