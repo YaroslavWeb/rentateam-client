@@ -1,12 +1,5 @@
 export const getCategories = async () => {
-  let path = "";
-  console.log(process.env);
-  if (process.env.NODE_ENV === "development") {
-    path += process.env.REACT_APP_URL_DEV;
-  } else {
-    path += process.env.PROD_SERVER_URL;
-  }
-  path += "categories/";
+  const path = "https://rentateam-server-test.herokuapp.com/categories/";
 
   const req = await fetch(path, {
     method: "GET",

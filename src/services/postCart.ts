@@ -1,13 +1,7 @@
 import { ICartState } from "interfaces/store";
 
 export const postCart = async (cart: ICartState) => {
-  let path = "";
-  if (process.env.NODE_ENV === "development") {
-    path += process.env.REACT_APP_URL_DEV;
-  } else {
-    path += process.env.REACT_APP_URL_PROD;
-  }
-  path += "cart/";
+  const path = "https://rentateam-server-test.herokuapp.com/cart/";
 
   const req = await fetch(path, {
     method: "POST",
