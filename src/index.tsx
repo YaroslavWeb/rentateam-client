@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import smoothscroll from "smoothscroll-polyfill";
 import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 
@@ -13,6 +14,8 @@ const GlobalStyles = createGlobalStyle`
 ${BaseStyles}
 ${FontsStyles}
 `;
+
+smoothscroll.polyfill();
 
 ReactDOM.render(
   <React.StrictMode>

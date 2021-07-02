@@ -38,6 +38,7 @@ export const Product = styled.div<{ isEven: boolean }>`
   }
 
   @media ${theme.media.small} {
+    width: 100%;
     justify-self: center;
   }
 `;
