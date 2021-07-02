@@ -44,8 +44,6 @@ export const Product = styled.div<{ isEven: boolean }>`
 
 export const ProductImage = styled.img`
   object-fit: contain;
-  width: 100%;
-  height: 100%;
 `;
 
 export const ProductTitle = styled.div`

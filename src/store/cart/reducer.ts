@@ -1,5 +1,5 @@
 import { CartAction } from "./actions";
-import { ICartState, IAction } from "interfaces/store";
+import { ICartState, IAction, IProductInCart } from "interfaces/store";
 import { IProduct } from "interfaces/product";
 
 const initialState: ICartState = {
@@ -42,7 +42,7 @@ export const cartReducer = (
         };
       }
     case CartAction.REMOVE_PRODUCT:
-      let updatedProducts = [];
+      let updatedProducts: IProductInCart[] = [];
       const removedIdx = state.products.findIndex(
         (item) => item.product.id === payload.id
       );
@@ -64,6 +64,14 @@ export const cartReducer = (
         };
       }
       return state;
+
+    case CartAction.CLEAR_CART:
+      return {
+        ...state,
+        products: [],
+        totalPrice: 0,
+        totalCount: 0,
+      };
     default:
       return state;
   }

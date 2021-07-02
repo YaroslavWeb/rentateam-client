@@ -13,6 +13,10 @@ const theme = {
     medium: "(max-width: 720px)",
     small: "(max-width: 540px)",
   },
+
+  zindex: {
+    navbar: 100,
+  },
 };
 
 export default theme;

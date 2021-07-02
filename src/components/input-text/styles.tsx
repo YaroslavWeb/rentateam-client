@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import theme from "styles/theme";
 
+import theme from "styles/theme";
 import TipSvg from "assets/svg/tip.svg";
 
 export const INPUT_HEIGHT = 42;
-export const TOOLTIP_ZINDEX = 200;
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -41,7 +40,7 @@ export const InputTooltip = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
-  z-index: ${TOOLTIP_ZINDEX};
+  z-index: ${theme.zindex.navbar - 1};
 
   :after {
     position: absolute;

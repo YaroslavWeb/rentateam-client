@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import theme from "styles/theme";
-import { NAVBAR_HEIGHT, NAVBAR_ZINDEX } from "components/app-navbar/styles";
+import { NAVBAR_HEIGHT } from "components/app-navbar/styles";
 
 export const BAR_GAP = 32;
 export const BAR_HEIGHT = 64;
@@ -20,7 +20,7 @@ export const StyledCategoriesBar = styled.div<{ isSticky: boolean }>`
   background: ${theme.colors.white};
   color: ${theme.colors.gray};
   border-radius: 0 0px 16px 16px;
-  z-index: ${NAVBAR_ZINDEX - 1};
+  z-index: ${theme.zindex.navbar - 2};
   transition: box-shadow 0.5s ease, padding 0.1s linear;
 
   ${(props) =>
