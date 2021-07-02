@@ -37,21 +37,23 @@ export const AddressItem = styled.div`
   gap: 12px;
 `;
 
-interface CategorySectionProps {
-  isEven: boolean;
-  isLast: boolean;
-}
+export const CategoriesSection = styled.div`
+  & > *:last-child {
+    padding-bottom: ${PRODUCT_HEIGHT}px;
+  }
 
-export const CategorySection = styled.div<CategorySectionProps>`
+  & > *:nth-child(2n) {
+    background: ${theme.colors.white};
+  }
+`;
+
+export const CategorySection = styled.div`
   padding: 32px 96px;
-  padding-bottom: ${(props) => (props.isLast ? PRODUCT_HEIGHT : 32)}px;
 
-  background: ${(props) =>
-    props.isEven ? theme.colors.white : theme.colors.lightGray};
+  background: ${theme.colors.lightGray};
 
   @media ${theme.media.large} {
     padding: 16px 16px;
-    padding-bottom: ${(props) => (props.isLast ? PRODUCT_HEIGHT : 16)}px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import placeholderImage from "assets/images/placeholder.png";
@@ -23,7 +23,7 @@ interface ProductCardProps {
   categoryIndex: number;
 }
 
-export function ProductCard({
+export const ProductCardMemo = memo(function ProductCard({
   product,
   productIndex,
   categoryIndex,
@@ -91,4 +91,4 @@ export function ProductCard({
       {productIndex === 1 && <ProductBadge isNew={false}>Хит</ProductBadge>}
     </Product>
   );
-}
+});

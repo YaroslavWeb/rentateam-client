@@ -8,7 +8,7 @@ import { getCategories } from "services";
 import { toggleOrderOption } from "store/ui/actions";
 import { AppSwitch } from "components/app-switch";
 import { CategoriesBar } from "components/categories-bar";
-import { ProductCard } from "components/product-card";
+import { ProductCardMemo } from "components/product-card";
 import { InputText } from "components/input-text";
 import { Divider, Title1, Title2 } from "styles/components";
 import {
@@ -16,6 +16,7 @@ import {
   TopSection,
   Address,
   AddressItem,
+  CategoriesSection,
   CategorySection,
   CategoryWrapper,
 } from "styles/main";
@@ -85,40 +86,35 @@ export function Main({ formik }: MainProps) {
           </Address>
         )}
       </TopSection>
-      {categories ? (
+      {categories.length ? (
         <CategoriesBar categories={categories} />
       ) : (
         <span>Загрузочка</span>
       )}
-      {categories ? (
-        categories.map((category, idx) => (
-          <CategorySection
-            key={category.id}
-            id={`cat-${category.id}`}
-            isEven={!!(idx % 2)}
-            isLast={idx + 1 === categories.length}
-          >
-            <Title2>{category.name}</Title2>
-            <Divider height={32} />
-            <CategoryWrapper>
-              {category.products
-                .filter((product) =>
-                  ui.isDelivery ? ui.isDelivery === product.delivery : true
-                )
-                .map((product, jdx) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    productIndex={jdx}
-                    categoryIndex={idx}
-                  />
-                ))}
-            </CategoryWrapper>
-          </CategorySection>
-        ))
-      ) : (
-        <span>Загрузочка</span>
-      )}
+      <CategoriesSection>
+        {categories.length &&
+          categories.map((category, idx) => (
+            <CategorySection key={category.id} id={`cat-${category.id}`}>
+              <Title2>{category.name}</Title2>
+              <Divider height={32} />
+              <CategoryWrapper>
+                {category.products
+                  .filter((product) =>
+                    ui.isDelivery ? ui.isDelivery === product.delivery : true
+                  )
+                  .map((product, jdx) => (
+                    <ProductCardMemo
+                      // здесь бага с перерисовкой при изменение типа заказа
+                      key={product.id}
+                      productIndex={jdx}
+                      categoryIndex={idx}
+                      product={product}
+                    />
+                  ))}
+              </CategoryWrapper>
+            </CategorySection>
+          ))}
+      </CategoriesSection>
     </Container>
   );
 }
