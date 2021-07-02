@@ -18,7 +18,7 @@ import {
   AddressItem,
   CategorySection,
   CategoryWrapper,
-} from "styles/app";
+} from "styles/main";
 import { IAddressFormik } from "interfaces/formik";
 
 const orderOptions: [string, string] = ["Доставка", "Самовывоз"];

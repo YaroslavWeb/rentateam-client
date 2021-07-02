@@ -5,7 +5,6 @@ import { ReactComponent as MenuSvg } from "assets/svg/menu.svg";
 import { ReactComponent as BasketSvg } from "assets/svg/basket.svg";
 
 export const NAVBAR_HEIGHT = 88;
-export const NAVBAR_ZINDEX = 100;
 
 export const Navbar = styled.div<{ isSticky: boolean }>`
   display: flex;
@@ -17,7 +16,7 @@ export const Navbar = styled.div<{ isSticky: boolean }>`
   background: ${theme.colors.white};
   padding: 0 96px;
   transition: box-shadow 0.5s ease;
-  z-index: ${NAVBAR_ZINDEX};
+  z-index: ${theme.zindex.navbar};
 
   box-shadow: ${(props) =>
     props.isSticky

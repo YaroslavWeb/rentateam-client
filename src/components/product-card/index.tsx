@@ -71,13 +71,7 @@ export function ProductCard({
 
   return (
     <Product ref={cardRef} isEven={!!(categoryIndex % 2)}>
-      <ProductImage
-        src={
-          isVisible
-            ? process.env.REACT_APP_STATIC_URL + product.img
-            : placeholderImage
-        }
-      />
+      <ProductImage src={isVisible ? product.img : placeholderImage} />
       <Divider height={24} />
       <ProductTitle>{product.name}</ProductTitle>
       <Divider height={8} />

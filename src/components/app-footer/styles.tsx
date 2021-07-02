@@ -51,10 +51,6 @@ export const FooterTop = styled.div`
   gap: 32px;
   width: 100%;
   margin-bottom: 128px;
-
-  /* @media ${theme.media.medium} {
-    grid: 1fr / repeat(auto-fit, minmax(340px, 1fr));
-  } */
 `;
 
 export const FooterTopCol = styled.div``;

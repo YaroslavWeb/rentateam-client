@@ -1,5 +1,12 @@
 export const getCategories = async () => {
-  const path = "/categories";
+  let path = "";
+  if (process.env.NODE_ENV === "production") {
+    path += process.env.PROD_SERVER_URL;
+  } else {
+    path += process.env.REACT_APP_URL_DEV;
+  }
+  path += "categories/";
+
   const req = await fetch(path, {
     method: "GET",
     headers: {

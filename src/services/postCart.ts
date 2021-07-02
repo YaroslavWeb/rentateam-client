@@ -1,7 +1,14 @@
 import { ICartState } from "interfaces/store";
 
 export const postCart = async (cart: ICartState) => {
-  const path = "/cart";
+  let path = "";
+  if (process.env.NODE_ENV === "production") {
+    path += process.env.REACT_APP_URL_PROD;
+  } else {
+    path += process.env.REACT_APP_URL_DEV;
+  }
+  path += "cart/";
+
   const req = await fetch(path, {
     method: "POST",
     headers: {

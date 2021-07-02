@@ -19,7 +19,7 @@ export const TopSection = styled.div`
 
 export const Address = styled.div`
   display: grid;
-  grid: 1fr / repeat(auto-fill, minmax(250px, 1fr));
+  grid: 1fr / repeat(auto-fill, minmax(320px, 1fr));
   gap: 43px;
   width: 100%;
   margin-top: 47px;
